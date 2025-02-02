@@ -1,26 +1,3 @@
-
-// Inicializa EmailJS con tu public API Key
-emailjs.init('adwQHqZDoKpp2dxrT')
-
-// Función para enviar un correo
-function sendEmail(response, message) {
-    const emailData = {
-        response: response,
-        message: message
-    };
-
-    // Usar EmailJS para enviar el correo
-    emailjs.send('service_frh62c6', 'template_lyddbf2', emailData)
-        .then(function(response) {
-            console.log('Correo enviado con éxito', response);
-            document.getElementById('response').textContent = '¡Correo enviado con éxito!';
-        }, function(error) {
-            console.log('Error al enviar correo', error);
-            document.getElementById('response').textContent = 'Hubo un problema al enviar tu mensaje.';
-        });
-}
-
-// Agregar los eventos a los botones
 document.getElementById('yes-btn').addEventListener('click', function() {
     document.getElementById('response').textContent = 'Respuesta: Sí';
     sendEmail('Sí', document.getElementById('message').value);
@@ -35,3 +12,27 @@ document.getElementById('send-btn').addEventListener('click', function() {
     const message = document.getElementById('message').value;
     sendEmail('Mensaje sin respuesta', message);
 });
+
+function sendEmail(response, message) {
+    const emailData = {
+        response: response,
+        message: message
+    };
+
+    // Usar EmailJS para enviar el correo
+    fetch('https://api.emailjs.com/api/v1.0/email/send', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            service_id: 'template_lyddbf2',  // Asegúrate de poner tu service_id
+            template_id: 'template_lyddbf2',  // Asegúrate de poner tu template_id
+            user_id: 'adwQHqZDoKpp2dxrT',  // Asegúrate de poner tu user_id
+            template_params: emailData
+        })
+    })
+    .then(response => response.json())
+    .then(data => console.log('Correo enviado: ', data))
+    .catch(error => console.error('Error al enviar correo: ', error));
+}
