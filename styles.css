@@ -1,0 +1,123 @@
+/* Estilo general */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden; /* Evita el desbordamiento en horizontal */
+}
+
+/* Contenedor principal */
+.container {
+    padding: 20px;
+    max-width: 100%; /* Cambiado de 800px a 100% para ajustarse a pantallas pequeñas */
+    margin: 0 auto;
+    text-align: center;
+}
+
+h1 {
+    font-size: 1.5em;
+    line-height: 1.4;
+}
+
+button {
+    background-color: #ff5e5e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #ff3333;
+}
+
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1em;
+    margin-top: 10px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+#send-btn {
+    background-color: #4CAF50;
+    margin-top: 20px;
+}
+
+#send-btn:hover {
+    background-color: #45a049;
+}
+
+#response {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* Estilo para las imágenes */
+.images-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.images-container img {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    height: auto;
+}
+
+/* Estilo para el video */
+.video-container {
+    margin-top: 20px;
+    text-align: center;
+}
+
+video {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.2em;
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+
+    textarea {
+        font-size: 0.9em;
+    }
+
+    /* Asegura que la página sea más adecuada para orientación vertical */
+    .container {
+        padding: 10px;
+        max-width: 100%;
+    }
+
+    .images-container img {
+        max-width: 90%; /* Ajuste de imagen para que no sea más ancha que la pantalla */
+    }
+
+    /* Cambiar el ancho del video para ajustarse a la pantalla en vertical */
+    video {
+        width: 90%; /* 90% del ancho para asegurar que se vea bien en vertical */
+        max-width: 100%;
+    }
+
+    /* Evitar que el contenido se desborde en pantallas muy pequeñas */
+    body {
+        overflow-x: hidden;
+    }
+}

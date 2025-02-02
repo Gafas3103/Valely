@@ -1,0 +1,10 @@
+{
+  "name": "valery",
+  "version": "1.0.0",
+  "description": "Te amo mi niña",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "emailjs-com": "^3.2.0"
+  }
+}
